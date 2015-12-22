@@ -34,17 +34,16 @@ public class HdfsDAO {
     private Configuration conf;
 
     public static void main(String[] args) throws IOException {
-        JobConf conf = config();
+        Configuration conf = config();
         HdfsDAO hdfs = new HdfsDAO(conf);
         hdfs.ls("/user");
     }
 
-    public static JobConf config() {
-        JobConf conf = new JobConf(HdfsDAO.class);
-        conf.setJobName("HdfsDAO");
-        conf.addResource("classpath:/hadoop/core-site.xml");
-        conf.addResource("classpath:/hadoop/hdfs-site.xml");
-        conf.addResource("classpath:/hadoop/mapred-site.xml");
+    public static Configuration config() {
+        Configuration conf = new Configuration();
+//        conf.addResource("classpath:/hadoop/core-site.xml");
+//        conf.addResource("classpath:/hadoop/hdfs-site.xml");
+//        conf.addResource("classpath:/hadoop/mapred-site.xml");
         return conf;
     }
 
